@@ -1,0 +1,35 @@
+$main-font: 14px;
+
+$color-accent: #8F7CFF;
+$color-main-black: #05070F;
+$color-gray-text: #7F8095;
+$color-gray-text-sub: #3F3F3F;
+
+
+$bg-block: rgba(#343A4A, .5);
+$bg-card: #2B2F3B;
+
+$ff: 'Inter', sans-serif;
+
+.btn {
+  background: $bg-card;
+  width: fit-content;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+  height: 45px;
+
+  transition: .2s ease;
+  &:hover {
+    opacity: 0.6;
+    transform: translateY(1px);
+  }
+  &--light {
+    background: rgba(#fff, .05);
+  }
+  &--accent {
+    background: $color-accent;
+  }
+}

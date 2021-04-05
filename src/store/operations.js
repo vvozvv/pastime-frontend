@@ -19,20 +19,20 @@ export default ({
   },
   actions: {
     getLastOperation({commit}) {
-      return axios.get('http://localhost:3000/api/v1/operations/get')
+      return axios.get('https://damp-bastion-54383.herokuapp.com/api/v1/operations/get')
       .then(res => {
         commit('GET_LAST_GAME', res.data)
       })
     },
     getUserLastOperations({commit}, id) {
-      return axios.post('http://localhost:3000/api/v1/operations/user', {id: id})
+      return axios.post('https://damp-bastion-54383.herokuapp.com/api/v1/operations/user', {id: id})
       .then(res => {
         commit('GET_USER_OPERATION', res.data)
       })
     },
     sendOperationResult({commit, state}, result) {
       state.operationLoading = true
-      return axios.post('http://localhost:3000/api/v1/operations/add', result)
+      return axios.post('https://damp-bastion-54383.herokuapp.com/api/v1/operations/add', result)
       .then(res => {
         state.operationLoading = false
         commit('SEND_OPERTAION', res.data)

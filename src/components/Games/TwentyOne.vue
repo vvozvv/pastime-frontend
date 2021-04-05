@@ -405,6 +405,7 @@ export default {
 
 }
 .box-game {
+  display: flex;
   &__col {
     width: 70%;
     order: 1;

@@ -17,7 +17,7 @@ const routes = [
     path: "/",
     name: "Main",
     component:import("@/views/Main.vue"),
-    redirect: '/games',
+    // redirect: '/games',
     children: [
       {
         name: 'single-game',

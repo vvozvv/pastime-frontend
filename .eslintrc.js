@@ -10,7 +10,6 @@ module.exports = {
   "env": {
     browser: true,
   },
-  
   "plugins": ["vue"],
   "rules": {
     "vue/max-attributes-per-line": "off",

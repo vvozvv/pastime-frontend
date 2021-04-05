@@ -27,7 +27,7 @@ export default ({
   },
   actions: {
     getACtiveList({commit}) {
-      return axios.get('http://localhost:3000/api/v1/menu')
+      return axios.get('https://damp-bastion-54383.herokuapp.com/api/v1/menu')
       .then(res => {
         commit('GET_ACTIVE_MENU', res.data)
       })
@@ -36,7 +36,7 @@ export default ({
       })
     },
     getAllMenu({commit}) {
-      return axios.get('http://localhost:3000/menu/all')
+      return axios.get('https://damp-bastion-54383.herokuapp.com/menu/all')
       .then(res => {
         commit('GET_FULL_MENU', res.data)
       })
@@ -46,7 +46,7 @@ export default ({
     },
     changeItemMenu({commit}, obj) {
       console.log(obj)
-      return axios.put('http://localhost:3000/api/v1/menu', obj)
+      return axios.put('https://damp-bastion-54383.herokuapp.com/api/v1/menu', obj)
       .then(res => {
         console.log(res.data);
         commit('CHANGE_ITEM_MENU', res.data)
@@ -56,7 +56,7 @@ export default ({
       })
     },
     createNewItem({commit}, newItem) {
-      return axios.post('http://localhost:3000/menu', newItem)
+      return axios.post('https://damp-bastion-54383.herokuapp.com/menu', newItem)
       .then(res => {
         console.log(res.data);
         commit('ADD_NEW_ITEM_MENU', res.data)
@@ -66,7 +66,7 @@ export default ({
       })
     },
     removeItem({commit}, id) {
-      return axios.delete('http://localhost:3000/api/v1/menu', {data: {_id: id}})
+      return axios.delete('https://damp-bastion-54383.herokuapp.com/api/v1/menu', {data: {_id: id}})
       .then(res => {
         console.log(res);
         commit('REMOVE_ITEM_MENU', id)

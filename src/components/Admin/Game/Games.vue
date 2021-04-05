@@ -2,9 +2,9 @@
   <div class="admin">
     <div class="admin-header">
       <h1 class="admin-header__title">Список игр</h1>
-      <button class="btn" @click.prevent="toggleTabs">{{ !addNew ? 'Добавить новую игру' : 'Закрыть'}}</button>
+      <button class="btn" @click.prevent="toggleTabs">{{ !addNew ? 'Добавить новую игру' : 'Закрыть' }}</button>
     </div>
-    <ul class="list game-list" v-if="!addNew">
+    <ul v-if="!addNew" class="list game-list">
       <div class="game-list__header">
         <p class="game-list__box game-list__box--title">Название</p>
         <p class="game-list__box game-list__box--rate">ССылка</p>
@@ -13,18 +13,18 @@
         <p class="game-list__box switch">Активность</p>
       </div>
       <game-row 
-      v-for="game in games" 
-      :key="game._id"
-      :title='game.title'
-      :link='game.link'
-      :minRate="game.minRate"
-      :maxRate="game.maxRate"
-      :description="game.description"
-      :active="game.active"
-      :id="game._id"
-      ></game-row>
+        v-for="game in games" 
+        :id="game._id"
+        :key="game._id"
+        :title="game.title"
+        :link="game.link"
+        :min-rate="game.minRate"
+        :max-rate="game.maxRate"
+        :description="game.description"
+        :active="game.active"
+      />
     </ul>
-    <div class="" v-else>
+    <div v-else class="">
       <Form />
     </div>
   </div>
@@ -35,14 +35,20 @@ import { mapGetters } from 'vuex'
 import GameRow from './GameRow.vue'
 import Form from './Form'
 export default {
+  components: {
+    GameRow,
+    Form
+  },
   data() {
     return {
       addNew: false
     }
   },
-  components: {
-    GameRow,
-    Form
+  computed: {
+    ...mapGetters(['games'])
+  },
+  mounted() {
+    this.getGames()
   },
   methods: {
     getGames() {
@@ -52,12 +58,7 @@ export default {
       this.addNew = !this.addNew
     }
   },
-  mounted() {
-    this.getGames()
-  },
-  computed: {
-    ...mapGetters(['games'])
-  }
+  
 }
 </script>
 

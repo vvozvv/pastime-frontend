@@ -1,9 +1,6 @@
 <template>
   <div class="">
-    <h1>Страница с названием игры {{id}}</h1>
-    
-    
-
+    <h1>Страница с названием игры {{ id }}</h1>
   </div>
 </template>
 
@@ -14,13 +11,13 @@ export default {
       id: this.$route.params.id
     }
   },
+  mounted() {
+    this.showIdGame()
+  },
   methods: {
     showIdGame() {
       alert(this.id)
     }
-  },
-  mounted() {
-    this.showIdGame()
   }
 }
 </script>

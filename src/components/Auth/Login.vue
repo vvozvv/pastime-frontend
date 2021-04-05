@@ -3,14 +3,14 @@
     <form class="login form" @submit.prevent="login">
       <div class="form__box">
         <label>Никнейм</label>
-        <input required v-model="username" type="text" placeholder="Ваш никнейм" class="form-controll"/>
+        <input v-model="username" required type="text" placeholder="Ваш никнейм" class="form-controll">
       </div>
       <div class="form__box">
         <label>Пароль</label>
-        <input required v-model="password" type="password" placeholder="Пароль" class="form-controll"/>
+        <input v-model="password" required type="password" placeholder="Пароль" class="form-controll">
       </div>
       <button type="submit" class="btn btn--accent">Войти</button>
-   </form>
+    </form>
   </div>
 </template>
 
@@ -23,6 +23,9 @@ export default {
       password: null,
       show_label: false
     }
+  },
+  computed: {
+    ...mapGetters(['user', 'isLoggedIn', 'token'])
   },
   methods: {
     login() {
@@ -38,10 +41,6 @@ export default {
         })
       })
     },
-    
-  },
-  computed: {
-    ...mapGetters(['user', 'isLoggedIn', 'token'])
   },
 }
 </script>

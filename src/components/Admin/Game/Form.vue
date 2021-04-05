@@ -1,9 +1,9 @@
 <template>
   <form action="" class="form form-game">
     <div class="form-game__col">
-      <input type="text" class="form-controll" placeholder="Введите название игры" v-model="title">
-      <input type="text" class="form-controll" placeholder="Url игры" v-model="link">
-      <textarea name="" cols="20" rows="30" class="form-controll form-game__textarea" placeholder="Введите описание игры" v-model="description" />
+      <input v-model="title" type="text" class="form-controll" placeholder="Введите название игры">
+      <input v-model="link" type="text" class="form-controll" placeholder="Url игры">
+      <textarea v-model="description" name="" cols="20" rows="30" class="form-controll form-game__textarea" placeholder="Введите описание игры" />
     </div>
     <div class="form-game__col">
       <div class="form-game__row">
@@ -12,7 +12,7 @@
       </div>
       <div class="form-game__row">
         <p class="form-game__text">Сделать игру сразу активной?</p>
-        <checkbox :edit="edit" :active="active" @checked="handleCheckbox" class="form-game__check" />
+        <checkbox :edit="edit" :active="active" class="form-game__check" @checked="handleCheckbox" />
       </div>
       <button class="btn" @click.prevent="sendGame">Добавить</button>
     </div>

@@ -1,23 +1,23 @@
 <template>
   <div class="box"> 
-    <loader :loader="loader"></loader>
+    <loader :loader="loader" />
     <div class="box__header">
       <h2 class="box__title">Последние игры</h2>
     </div>
     <ul class="last-game">
-        <li v-for="item in lastOperation" :key="item._id" class="last-game__item">
-          <div class="last-game__icon"></div>
-          <div class="last-game__box">
-            <h3 class="last-game__username">{{getUsername(item.user_id)}}</h3>
-            <!-- <h3 class="last-game__username">{{item.user_id}}</h3> -->
-            <div class="last-game__footer">
-              <small class="last-game__desc last-game__desc--dot">{{item.title}}</small>
-              <small class="last-game__desc last-game__desc--win" v-if="item.result">+{{item.total}}</small>
-              <small class="last-game__desc last-game__desc--lose" v-else>-{{item.total}}</small>
-            </div>
+      <li v-for="item in lastOperation" :key="item._id" class="last-game__item">
+        <div class="last-game__icon" />
+        <div class="last-game__box">
+          <h3 class="last-game__username">{{ getUsername(item.user_id) }}</h3>
+          <!-- <h3 class="last-game__username">{{item.user_id}}</h3> -->
+          <div class="last-game__footer">
+            <small class="last-game__desc last-game__desc--dot">{{ item.title }}</small>
+            <small v-if="item.result" class="last-game__desc last-game__desc--win">+{{ item.total }}</small>
+            <small v-else class="last-game__desc last-game__desc--lose">-{{ item.total }}</small>
           </div>
-        </li>
-      </ul>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -25,13 +25,19 @@
 import { mapGetters } from 'vuex'
 import Loader from '../Loader.vue'
 export default {
+  components: {
+    Loader
+  },
   data() {
     return {
       loader: true
     }
   },
-  components: {
-    Loader
+  computed: {
+    ...mapGetters(['lastOperation'])
+  },
+  created() {
+    this.getLastGames()
   },
   methods: {
     toggleLoader() {
@@ -47,12 +53,6 @@ export default {
       return Object.assign({}, ...el).username
     }
   },
-  created() {
-    this.getLastGames()
-  },
-  computed: {
-    ...mapGetters(['lastOperation'])
-  }
 }
 </script>
 

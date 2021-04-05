@@ -1,21 +1,21 @@
 <template>
   <div>
-    <form class="login form" @submit.prevent="login" :class="{focused:focused}">
+    <form class="login form" :class="{focused:focused}" @submit.prevent="login">
       <div class="form__box">
         <label class="form__title">Почта</label>
-        <input required v-model="email" type="text" placeholder="yourmail@mail.ru" class="form-controll" :class="isEmailValid" autocomplete="off" />
+        <input v-model="email" required type="text" placeholder="yourmail@mail.ru" class="form-controll" :class="isEmailValid" autocomplete="off">
       </div>
       <div class="form__box">
         <label class="form__title">Пароль</label>
-        <input required :class="{valid: valid_password}" v-model="password" type="password" placeholder="Пароль" class="form-controll" @input="checkPassword" autocomplete="off" />
+        <input v-model="password" required :class="{valid: valid_password}" type="password" placeholder="Пароль" class="form-controll" autocomplete="off" @input="checkPassword">
       </div>
       <div class="form__box">
         <label class="form__title">Повторите пароль</label>
-        <input required :class="{valid: valid_password}" v-model="passwordConfirm" type="password" placeholder="Повторите пароль" class="form-controll" @input="checkPassword" autocomplete="off" />
+        <input v-model="passwordConfirm" required :class="{valid: valid_password}" type="password" placeholder="Повторите пароль" class="form-controll" autocomplete="off" @input="checkPassword">
       </div>
       <div class="form__box">
         <label class="form__title">Никнейм</label>
-        <input required v-model="username" type="text" placeholder="superplayer" class="form-controll" :class="isUsernameValid" />
+        <input v-model="username" required type="text" placeholder="superplayer" class="form-controll" :class="isUsernameValid">
       </div>
       <ul class="form__list"> 
         <li class="form__item" :class="{ is_valid: contains_eight_characters }">8 символов</li>
@@ -25,7 +25,7 @@
         <li class="form__item" :class="{ is_valid: confirm_password }">Пароли не совпадают</li>
       </ul>
       <button type="submit" class="btn btn--accent">Зарегистрироваться</button>
-   </form>
+    </form>
   </div>
 </template>
 
@@ -47,6 +47,30 @@ export default {
       valid_password: false,
       confirm_password: false,
       error: []
+    }
+  },
+  computed: {
+    isEmailValid: function() {
+      return (this.email == "")? "" : (this.reg.test(this.email)) ? 'valid' : 'error';
+    },
+    isUsernameValid: function() {
+      return (this.username.length > 5) ? 'valid' : 'error';
+    },
+    checkCompleteForm: function() {
+      if (this.valid_password == true && this.isEmailValid == 'valid' && this.isUsernameValid == 'valid') {
+        return true
+      } else {
+        return false
+      }
+    },
+  },
+  watch: {
+    passwordConfirm: function() {
+      if (this.password === this.passwordConfirm) {
+        this.error = []
+      } else {
+        console.log('Пароли не совпадают');
+      }
     }
   },
   methods: {
@@ -92,30 +116,6 @@ export default {
       }
     }
   },
-  watch: {
-    passwordConfirm: function() {
-      if (this.password === this.passwordConfirm) {
-        this.error = []
-      } else {
-        console.log('Пароли не совпадают');
-      }
-    }
-  },
-  computed: {
-    isEmailValid: function() {
-      return (this.email == "")? "" : (this.reg.test(this.email)) ? 'valid' : 'error';
-    },
-    isUsernameValid: function() {
-      return (this.username.length > 5) ? 'valid' : 'error';
-    },
-    checkCompleteForm: function() {
-      if (this.valid_password == true && this.isEmailValid == 'valid' && this.isUsernameValid == 'valid') {
-        return true
-      } else {
-        return false
-      }
-    },
-  }
 }
 </script>
 

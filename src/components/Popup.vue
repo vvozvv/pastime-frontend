@@ -1,7 +1,7 @@
 <template>
   <div class="popup-bg">
     <div class="popup">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

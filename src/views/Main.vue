@@ -2,7 +2,7 @@
   <div class="home">
     <the-header />
     <section class="content" 
-            :class="{hide: !toggleSidebar}"
+             :class="{hide: !toggleSidebar}"
     >
       <sidebar />
       <div class="content__box">

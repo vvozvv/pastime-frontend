@@ -1,6 +1,6 @@
 <template>
   <div class="form-game__box counter">
-    <input type="string" step="50" placeholder="Минимальная ставка" v-model="thisRate" @input="sendRate" min="0" class="counter__rate">
+    <input v-model="thisRate" type="string" step="50" placeholder="Минимальная ставка" min="0" class="counter__rate" @input="sendRate">
     <div class="counter__controlls">
       <button class="counter__cont" @click.prevent="pluseRate">+</button>
       <button class="counter__cont" @click.prevent="minusRate">-</button>

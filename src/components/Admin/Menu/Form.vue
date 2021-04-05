@@ -1,7 +1,7 @@
 <template>
   <form action="" class="form" @submit.prevent="createNewItem">
-    <input type="text" placeholder="Введите название меню" v-model="title" class="form-controll">
-    <input type="text" placeholder="Введите /url" v-model="url" class="form-controll">
+    <input v-model="title" type="text" placeholder="Введите название меню" class="form-controll">
+    <input v-model="url" type="text" placeholder="Введите /url" class="form-controll">
     <button class="btn">Создать меню</button>
   </form>
 </template>

@@ -16,11 +16,11 @@
         <ul class="social">
           <li class="social__item">
             <a href="" class="social__link">INST</a>
-            <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.667 18.333L18.333 1.667M1.667 1.667h16.666v16.666" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.667 18.333L18.333 1.667M1.667 1.667h16.666v16.666" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </li>
           <li class="social__item">
             <a href="" class="social__link">VK</a>
-            <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.667 18.333L18.333 1.667M1.667 1.667h16.666v16.666" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.667 18.333L18.333 1.667M1.667 1.667h16.666v16.666" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </li>
         </ul>
       </div>

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0cbafe"],{"4b71":function(t,e,n){"use strict";n.r(e);var i=n("7a23"),a={class:""};function c(t,e,n,c,d,o){return Object(i["r"])(),Object(i["e"])("div",a,[Object(i["i"])("h1",null,"Страница с названием игры "+Object(i["C"])(d.id),1)])}var d={data:function(){return{id:this.$route.params.id}},mounted:function(){this.showIdGame()},methods:{showIdGame:function(){alert(this.id)}}};d.render=c;e["default"]=d}}]);
+//# sourceMappingURL=chunk-2d0cbafe.fdbd3623.js.map

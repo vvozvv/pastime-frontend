@@ -6,14 +6,14 @@
     <ul v-if="fullMenu">      
       <menu-row 
         v-for="item in fullMenu" 
+        :id="item.id"
         :key="item._id"
-        :title='item.title'
-        :url='item.url'
-        :active='item.active'
-        :_id='item._id'
-      ></menu-row>
+        :title="item.title"
+        :url="item.url"
+        :active="item.active"
+      />
     </ul>
-    <div class="" v-else>
+    <div v-else class="">
       <p>Пункты меню отсутсвуют</p>
     </div>
   </div>
@@ -27,16 +27,16 @@ export default {
   components: {
     MenuRow
   },
-  methods: {
-    getAllMenu() {
-      this.$store.dispatch('getAllMenu')
-    }
+  computed: {
+    ...mapGetters(['fullMenu'])
   },
   created() {
     this.getAllMenu()
   },
-  computed: {
-    ...mapGetters(['fullMenu'])
+  methods: {
+    getAllMenu() {
+      this.$store.dispatch('getAllMenu')
+    }
   }
 }
 </script>

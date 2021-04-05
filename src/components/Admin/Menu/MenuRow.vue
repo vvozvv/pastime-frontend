@@ -1,29 +1,46 @@
 <template>
   <li class="list__item table-row">
     <template v-if="edit">
-      <p>{{itemTitle}}</p>
-      <p>{{itemUrl}}</p>
+      <p>{{ itemTitle }}</p>
+      <p>{{ itemUrl }}</p>
     </template>
     <template v-else>
-      <input type="text" :name="itemId" :placeholder="itemTitle" v-model="itemTitle" class="table-row__input">
-      <input type="text" :name="itemUrl" :placeholder="itemUrl" v-model="itemUrl" class="table-row__input">
+      <input v-model="itemTitle" type="text" :name="itemId" :placeholder="itemTitle" class="table-row__input">
+      <input v-model="itemUrl" type="text" :name="itemUrl" :placeholder="itemUrl" class="table-row__input">
     </template>  
     
 
     <div class="switch">
-      <input type="checkbox" id="switch" class="switch__input" :checked='checked' :disabled="edit"/>
-      <label for="switch" class="switch__label" :disabled="edit"></label>
+      <input id="switch" type="checkbox" class="switch__input" :checked="checked" :disabled="edit">
+      <label for="switch" class="switch__label" :disabled="edit" />
     </div>
     <div class="table-row__btn">
-      <button class="btn" v-if="edit" @click="toggleEdit">Изменить</button>
-      <button class="btn" v-else @click.prevent="changeItemMenu">Сохранить</button>
+      <button v-if="edit" class="btn" @click="toggleEdit">Изменить</button>
+      <button v-else class="btn" @click.prevent="changeItemMenu">Сохранить</button>
       <button class="btn" @click.prevent="removeItem(itemId)">Удалить</button>
     </div>
   </li>
 </template>
 <script>
 export default {
-  props: ['title', 'url', 'active', '_id'],
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    url: {
+      type: String,
+      required: true
+    },
+    active: {
+      type: Boolean,
+      required: true
+    },
+    id: {
+      type: String,
+      required: true
+    },
+  },
   data() {
     return {
       itemId: this._id,

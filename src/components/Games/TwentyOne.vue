@@ -152,9 +152,9 @@ export default {
     checkMinUserScore() {
       return this.userScore >= 16
     },
-    checkCoin() {
-      return (this.coin >= this.rate) ? true : false
-    },
+    // checkCoin() {
+    //   return (this.coin >= this.rate) ? true : false
+    // },
     checkresult() {
       const draw = (this.userScore == this.computerScore) ? true : false
       const draw2 = (this.userScore > 21 && this.computerScore > 21) ? true : false
@@ -232,16 +232,20 @@ export default {
       } while (this.computerScore < 16);
     },
     startGame() {
-      if (this.checkCoin) {
-        this.started = !this.started
+      // if (this.checkCoin) {
+      //   this.started = !this.started
+      //   this.getRandomCard(1, true)
+      //   this.getRandomCard(0)
+      //   this.$store.dispatch('startTimer')
+      // } else {
+      //   this.$toast.error(`У вас не хватает монет`, {
+      //     duration: 2000
+      //   })
+      // }
+      this.started = !this.started
         this.getRandomCard(1, true)
         this.getRandomCard(0)
         this.$store.dispatch('startTimer')
-      } else {
-        this.$toast.error(`У вас не хватает монет`, {
-          duration: 2000
-        })
-      }
       
     },
     finishGame() {

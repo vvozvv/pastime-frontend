@@ -16,8 +16,8 @@ const routes = [
   {
     path: "/",
     name: "Main",
-    component:import("@/views/Main.vue"),
-    // redirect: '/games',
+    component: () => import("@/views/Main.vue"),
+    redirect: '/games',
     children: [
       {
         name: 'single-game',
@@ -31,8 +31,8 @@ const routes = [
         name: 'games',
         path: '/games',
         components: {
-          default: import("@/components/Games/AllGame"),
-          lastGames: import("@/components/Games/LastGame")
+          default: () => import("@/components/Games/AllGame"),
+          lastGames: () => import("@/components/Games/LastGame")
         },
         props: true,
       },
@@ -40,7 +40,7 @@ const routes = [
         name: 'momorygame',
         path: '/games/momorygame',
         components: {
-          default: import("@/components/Games/MemoryCardGame"),
+          default: () => import("@/components/Games/MemoryCardGame"),
         },
       },
       {
@@ -48,18 +48,18 @@ const routes = [
         path: '/games/twenty-one',
         props: true,
         components: {
-          default: import("@/components/Games/TwentyOne"),
+          default: () => import("@/components/Games/TwentyOne"),
         },
       },
       {
         name: 'top',
         path: '/top',
-        component: import("@/components/TopUsers")
+        component: () => import("@/components/TopUsers")
       },
       {
         path: '/account/:id',
         name: 'Account',
-        component: import("@/components/Account"),
+        component: () => import("@/components/Account"),
         beforeEnter: Authenticated
       }
     ]
@@ -68,27 +68,27 @@ const routes = [
     path: "/auth",
     name: "Auth",
     props: true,
-    component: import("@/views/Auth"),
+    component: () => import("@/views/Auth"),
   },
   {
     name: 'admin',
     path: '/admin',
-    component: import("@/views/Admin"),
+    component: () => import("@/views/Admin"),
     beforeEnter: Authenticated,
     children: [
       {
         name: 'admin-menu',
         path: '/admin/menu',
         components: {
-          default: import("@/components/Admin/Menu/Menu"),
-          adminMenuForm: import("@/components/Admin/Menu/Form")
+          default: () => import("@/components/Admin/Menu/Menu"),
+          adminMenuForm: () => import("@/components/Admin/Menu/Form")
         } 
       },
       {
         name: 'admin-game',
         path: '/admin/game',
         components: {
-          default: import("@/components/Admin/Game/Games")
+          default: () => import("@/components/Admin/Game/Games")
         }
       }
     ],
@@ -96,11 +96,11 @@ const routes = [
   { 
     path: '/404', 
     name: '404', 
-    component: import("@/views/Errors/404"), 
+    component: () => import("@/views/Errors/404"), 
   },
   {
     path: "/:catchAll(.*)",
-    component: import("@/views/Errors/404"), 
+    component: () => import("@/views/Errors/404"), 
   }
 ];
 

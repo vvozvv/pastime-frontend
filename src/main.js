@@ -13,14 +13,12 @@ if (token) {
 let refreshTokenPromise;
 
 axios.interceptors.response.use(function (config) {
-  console.log('200');
   return config;
 }, async function (error) {
   console.error(error);
   if (!refreshTokenPromise) {
     refreshTokenPromise = store.dispatch('refreshToken');
   }
-  
   await refreshTokenPromise;
   refreshTokenPromise = null;
 

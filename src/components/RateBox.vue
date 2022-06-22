@@ -14,7 +14,7 @@
         <span class="rate__num">200</span>
       </button>
     </div>
-    <div class="rate__list" :class="{disabled: disabled}">
+    <div class="rate__list2" :class="{disabled: disabled}">
       <div class="rate__col">
         <p class="rate__title">Cтавка</p>
         <div class="rate__box">
@@ -130,7 +130,7 @@ export default {
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 10px;
-    width: 50%;
+    width: 100%;
     height: 100px;
   }
   &__num {
@@ -139,12 +139,18 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  &__list2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
   &__list {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     margin: 10px 0;
     transition: .4s ease;
+    gap: 10px;
     &.disabled {
       pointer-events: none;
       opacity: .6;
